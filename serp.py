@@ -14,6 +14,7 @@ def get_search_results(query):
     url = 'https://api.spaceserp.com/google/search?apiKey=cd73fb76-975e-48e4-a7f7-420d4d9f0279&resultBlocks='
 
     # Your API key
+    #Comment
     api_key = os.getenv("API_KEY")
     # Query parameters
     params = {
