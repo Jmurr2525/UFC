@@ -11,6 +11,8 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+#message here
+
 
 def main():
 
