@@ -1,31 +1,32 @@
 import os
 from dotenv import load_dotenv
+import requests
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Access the API key
-api_key = os.getenv("API_KEY")
-import requests
-import json
-
 def get_search_results(query):
     # Your API endpoint
-    url = 'https://api.spaceserp.com/google/search?apiKey=cd73fb76-975e-48e4-a7f7-420d4d9f0279&resultBlocks='
+    url = 'https://api.spaceserp.com/google/search'
 
-    # Your API key
-    #Comment
-    api_key = os.getenv("API_KEY")
+    # Access the API key
+    api_key = os.getenv("SERP_API_KEY")
+
+    # Check if API key is not found
+    if not api_key:
+        print("API key not found. Please check your .env file.")
+        return None
+
     # Query parameters
     params = {
         'q': query,
-        'key': api_key,
+        'apiKey': api_key,
     }
 
     # Make the request
     response = requests.get(url, params=params)
 
-# Check if request is successful
+    # Check if request is successful
     if response.status_code == 200:
         json_response = response.json()
         if 'organic_results' in json_response and len(json_response['organic_results']) > 0:
