@@ -7,6 +7,7 @@ load_dotenv()
 
 def get_search_results(query):
     # Your API endpoint
+<<<<<<< HEAD:data_collection/serp.py
     url = 'https://api.spaceserp.com/google/search'
 
     # Access the API key
@@ -16,6 +17,9 @@ def get_search_results(query):
     if not api_key:
         print("API key not found. Please check your .env file.")
         return None
+=======
+  
+>>>>>>> 7c7325b14d19dca8e3148db2101b7613ddb5d248:serp.py
 
     # Query parameters
     params = {
